@@ -18,13 +18,20 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $incomingPayload = $request->validate([
-            "email" => ["required"],
-            "password" => ["required"]
+            "login_email" => ["required"],
+            "login_password" => ["required"]
         ]);
 
-        if (auth("web")->attempt(["email" => $incomingPayload["email"], "password" => $incomingPayload["password"]])) {
-            $request->session()->regenerate();
+        $incomingPayload["email"] = $incomingPayload["login_email"];
+        $incomingPayload["password"] = $incomingPayload["login_password"];
+
+        if (!auth("web")->attempt(["email" => $incomingPayload["email"], "password" => $incomingPayload["password"]])) {
+            return back()->withErrors([
+                'wrongLogin' => 'Did you really register??',
+            ])->withInput();
         }
+
+        $request->session()->regenerate();
 
         return redirect("/");
     }
@@ -32,19 +39,28 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $incomingPayload = $request->validate([
-            "username" => ["required", Rule::unique("users", "username")],
-            "email" => ["required", Rule::unique("users", "email")],
-            "password" => "required",
+            "register_username" => ["required", Rule::unique("users", "username")],
+            "register_email" => ["required", Rule::unique("users", "email")],
+            "register_password" => "required|min:6",
+        ], [
+            'register_username.unique' => 'This username is already taken.',
+            'register_email.unique' => 'An account with this email already exists.',
+            'register_password.min' => 'Password must be at least 6 characters long.',
         ]);
 
-        $incomingPayload["password"] = bcrypt($incomingPayload["password"]);
+        $incomingPayload["register_password"] = bcrypt($incomingPayload["register_password"]);
 
+        $incomingPayload["username"] = $incomingPayload["register_username"];
+        $incomingPayload["email"] = $incomingPayload["register_email"];
+        $incomingPayload["password"] = $incomingPayload["register_password"];
+
+        // Create the user and log them in
         $user = User::create($incomingPayload);
-
         auth("web")->login($user);
 
         return redirect("/");
     }
+
 
     function posts()
     {
