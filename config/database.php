@@ -44,11 +44,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('MYSQL_ADDON_URL'),
+            'url' => env('MYSQL_ADDON_URI'),
             'host' => env('MYSQL_ADDON_HOST', '127.0.0.1'),
             'port' => env('MYSQL_ADDON_PORT', '3306'),
             'database' => env('MYSQL_ADDON_DB', 'laravel'),
-            'username' => env('MYSQL_ADDON_USERNAME', 'root'),
+            'username' => env('MYSQL_ADDON_USER', 'root'),
             'password' => env('MYSQL_ADDON_PASSWORD', ''),
             'unix_socket' => env('MYSQL_ADDON_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
