@@ -47,7 +47,7 @@ return [
             'url' => env('MYSQL_ADDON_URL'),
             'host' => env('MYSQL_ADDON_HOST', '127.0.0.1'),
             'port' => env('MYSQL_ADDON_PORT', '3306'),
-            'database' => env('MYSQL_ADDON_DATABASE', 'laravel'),
+            'database' => env('MYSQL_ADDON_DB', 'laravel'),
             'username' => env('MYSQL_ADDON_USERNAME', 'root'),
             'password' => env('MYSQL_ADDON_PASSWORD', ''),
             'unix_socket' => env('MYSQL_ADDON_SOCKET', ''),
