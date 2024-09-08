@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
     <title>Edit Post</title>
+    @vite('resources/js/app.js')
 </head>
 <body>
     <div class="container mx-auto bg-gray-50">
