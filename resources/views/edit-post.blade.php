@@ -8,7 +8,7 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <div class="container mx-auto bg-gray-50">
+    <div class="container mx-auto  bg-gray-50 min-h-[calc(100vh-70px)]">
             <h1 class="font-bold uppercase text-center text-5xl mb-6 text-gray-800 leading-tight">
                 Say Something...🙊
             </h1>
@@ -25,6 +25,11 @@
                 </div>
                 <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Edit</button>
             </form>
+        </div>
+    </div>
+    <div class="relative bottom-0 h-[70px] bg-black">
+        <div class="container mx-auto uppercase flex h-full">
+          <p class="self-center mx-auto text-center text-xs text-white">Developed and designed by <a href="https://oluwajolasun.com/" class="hover:text-gray-400 transition">Oluwajolasun 👨🏾‍💻 2024</a></p>
         </div>
     </div>
 </body>

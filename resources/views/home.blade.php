@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="container mx-auto  bg-gray-50">
+    <div class="container mx-auto  bg-gray-50 min-h-[calc(100vh-70px)]">
         <h1 class="font-bold uppercase text-center text-5xl mb-6 text-gray-800 leading-tight">
             Say Something...🙊
         </h1>
@@ -132,7 +132,15 @@
         @endif
     </div>
     @endauth
+
+</div>
+
+  </div>
+  <div class="relative bottom-0 h-[70px] bg-black">
+    <div class="container mx-auto uppercase flex h-full">
+      <p class="self-center mx-auto text-center text-xs text-white">Developed and designed by <a href="https://oluwajolasun.com/" class="hover:text-gray-400 transition">Oluwajolasun 👨🏾‍💻 2024</a></p>
     </div>
+</div>
 </body>
 
 </html>
